@@ -11,7 +11,6 @@
   --line: rgba(60, 55, 40, 0.15);
 
   --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-script: 'Petit Formal Script', 'Great Vibes', cursive;
   --font-body: 'EB Garamond', Georgia, serif;
 
   --section-pad: clamp(3rem, 6vw, 6rem);
@@ -288,16 +287,15 @@ section {
   gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
 }
-.story-text {
-  text-align: center;
-}
 .story-text p {
   font-size: 1.15rem;
 }
+.story-text p + p {
+  margin-top: 1.1rem;
+}
 .story-text .script {
-  font-family: var(--font-script);
-  font-size: 1.8rem;
   color: var(--olive-dark);
+  font-style: italic;
   margin-top: 1.2rem;
 }
 .story-photo img {
@@ -608,9 +606,6 @@ section {
 @media (max-width: 860px) {
   .story {
     grid-template-columns: 1fr;
-  }
-  .story-photo {
-    order: -1;
   }
 }
 
