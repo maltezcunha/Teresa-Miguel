@@ -237,21 +237,6 @@ section {
   color: #f1ead6;
 }
 
-.hero-details {
-  display: grid;
-  gap: 0.9rem;
-  margin: 0 auto 2.4rem;
-  font-size: 0.95rem;
-}
-.hero-details strong {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.72rem;
-  color: #d8cfb0;
-  margin-bottom: 0.15rem;
-}
-
 .countdown {
   display: flex;
   justify-content: center;
