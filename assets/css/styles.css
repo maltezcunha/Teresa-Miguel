@@ -195,36 +195,10 @@ section {
   color: var(--ink);
 }
 
-.hero-inner {
-  max-width: 640px;
-}
-
-.hero .monogram {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  border: 1px solid var(--olive);
-  padding: 6px;
-  margin: 0 auto 1.4rem;
-  object-fit: cover;
-  background: var(--cream);
-}
-
-.hero h1 {
-  font-size: clamp(2.6rem, 7vw, 4.4rem);
-  color: var(--olive-dark);
-}
-
-.hero .divider {
-  margin: 0.7rem 0 0.9rem;
-}
-
-.hero .date {
-  font-size: 1rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  color: var(--ink-soft);
+.hero-capa {
+  width: min(1100px, 100%);
+  height: auto;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .countdown {
@@ -253,20 +227,6 @@ section {
   margin-top: 0.3rem;
 }
 
-.hero-illustration {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: clamp(0.5rem, 3vw, 2rem);
-  width: min(1000px, 100%);
-  margin-top: clamp(2rem, 5vw, 3.5rem);
-}
-.hero-illustration img {
-  width: 50%;
-  max-width: 420px;
-  height: auto;
-}
-
 .scroll-cue {
   position: absolute;
   bottom: 1.2rem;
@@ -288,10 +248,8 @@ section {
 
 /* ===== A Nossa Historia ===== */
 .story {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
 }
 .story-text p {
   font-size: 1.15rem;
@@ -304,14 +262,6 @@ section {
   font-style: italic;
   margin-top: 1.2rem;
 }
-.story-photo img {
-  border-radius: 4px;
-  box-shadow: 0 18px 40px -18px rgba(60, 55, 34, 0.4);
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  object-position: 50% 30%;
-}
-
 .contamos-consigo {
   text-align: center;
   padding: 1.6rem 0;
