@@ -536,9 +536,6 @@ section {
   margin-bottom: 1.6rem;
   color: #e4dcc2;
 }
-.site-footer .contact-line a {
-  border-bottom: 1px solid rgba(241, 234, 214, 0.4);
-}
 .footer-meta {
   font-size: 0.72rem;
   text-transform: uppercase;
