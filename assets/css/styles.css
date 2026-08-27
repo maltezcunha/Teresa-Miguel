@@ -266,7 +266,7 @@ section {
   text-align: center;
   position: relative;
   padding: 7rem 1.5rem 3rem;
-  background: var(--cream);
+  background: var(--cream-alt);
   color: var(--ink);
 }
 
