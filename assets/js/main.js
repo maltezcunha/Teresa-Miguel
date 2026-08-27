@@ -1,3 +1,31 @@
+// ===== Intro envelope =====
+const introOverlay = document.getElementById('introOverlay');
+const envelope = document.getElementById('envelope');
+
+document.body.style.overflow = 'hidden';
+
+function openInvite() {
+  if (envelope.classList.contains('open')) return;
+  envelope.classList.add('open');
+  document.body.style.overflow = '';
+
+  setTimeout(() => {
+    introOverlay.classList.add('hide');
+  }, 550);
+
+  setTimeout(() => {
+    introOverlay.remove();
+  }, 1300);
+}
+
+introOverlay.addEventListener('click', openInvite);
+introOverlay.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    openInvite();
+  }
+});
+
 // ===== Mobile nav toggle =====
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');

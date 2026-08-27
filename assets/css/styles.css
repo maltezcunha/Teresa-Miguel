@@ -100,6 +100,95 @@ section {
   stroke-width: 1.4;
 }
 
+/* ===== Intro / Envelope ===== */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  background: var(--cream);
+  cursor: pointer;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+.intro-overlay.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.envelope {
+  position: relative;
+  width: min(300px, 72vw);
+  aspect-ratio: 3 / 2;
+  perspective: 1200px;
+}
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: var(--cream-alt);
+  border: 1px solid var(--olive);
+  border-radius: 3px;
+  box-shadow: 0 20px 45px -20px rgba(60, 55, 34, 0.45);
+}
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62%;
+  background: linear-gradient(160deg, var(--cream) 0%, var(--cream-alt) 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border: 1px solid var(--olive);
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.6, 0.05, 0.3, 1);
+  z-index: 2;
+}
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+.envelope-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: var(--cream);
+  padding: 4px;
+  z-index: 3;
+  box-shadow: 0 6px 16px -6px rgba(60, 55, 34, 0.5);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.envelope-seal img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.envelope.open .envelope-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+.intro-hint {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--olive-dark);
+  animation: intro-pulse 2.2s ease-in-out infinite;
+}
+@keyframes intro-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
 /* ===== Header / Nav ===== */
 .site-header {
   position: fixed;
