@@ -1,30 +1,55 @@
-// ===== Intro envelope =====
+// ===== Intro countdown =====
 const introOverlay = document.getElementById('introOverlay');
-const envelope = document.getElementById('envelope');
+const introCount = document.getElementById('introCount');
+const introMessage = document.getElementById('introMessage');
+const introSkip = document.getElementById('introSkip');
 
 document.body.style.overflow = 'hidden';
 
-function openInvite() {
-  if (envelope.classList.contains('open')) return;
-  envelope.classList.add('open');
-  document.body.style.overflow = '';
+const introNumbers = ['3', '2', '1'];
+let introStep = 0;
+let introTimer = null;
+let introFinished = false;
 
-  setTimeout(() => {
-    introOverlay.classList.add('hide');
-  }, 550);
-
-  setTimeout(() => {
-    introOverlay.remove();
-  }, 1300);
+function setIntroNumber(value) {
+  introCount.textContent = value;
+  introCount.classList.remove('pop');
+  void introCount.offsetWidth;
+  introCount.classList.add('pop');
 }
 
-introOverlay.addEventListener('click', openInvite);
-introOverlay.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' || e.key === ' ') {
-    e.preventDefault();
-    openInvite();
+function showIntroMessage() {
+  introCount.style.display = 'none';
+  introMessage.classList.add('show');
+}
+
+function finishIntro() {
+  if (introFinished) return;
+  introFinished = true;
+  clearTimeout(introTimer);
+  document.body.style.overflow = '';
+  introOverlay.classList.add('hide');
+  setTimeout(() => introOverlay.remove(), 700);
+}
+
+function nextIntroStep() {
+  if (introStep < introNumbers.length) {
+    setIntroNumber(introNumbers[introStep]);
+    introStep += 1;
+    introTimer = setTimeout(nextIntroStep, 700);
+  } else if (!introMessage.classList.contains('show')) {
+    showIntroMessage();
+    introTimer = setTimeout(finishIntro, 900);
+  } else {
+    finishIntro();
   }
-});
+}
+
+setIntroNumber(introNumbers[0]);
+introStep = 1;
+introTimer = setTimeout(nextIntroStep, 700);
+
+introSkip.addEventListener('click', finishIntro);
 
 // ===== Mobile nav toggle =====
 const navToggle = document.getElementById('navToggle');
