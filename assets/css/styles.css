@@ -56,14 +56,6 @@ h1, h2, h3 {
   margin: 0 auto;
 }
 
-.eyebrow {
-  font-family: var(--font-body);
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  font-size: 0.72rem;
-  color: var(--olive-dark);
-}
-
 .section-title {
   text-align: center;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
@@ -193,15 +185,14 @@ section {
 .hero {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
-  padding: 7rem 1.5rem 4rem;
-  background:
-    linear-gradient(180deg, rgba(60, 55, 34, 0.35), rgba(40, 38, 24, 0.62)),
-    url('../img/casal/casal-05.jpg') center 30% / cover no-repeat;
-  color: #fbf7ec;
+  padding: 7rem 1.5rem 3rem;
+  background: var(--cream);
+  color: var(--ink);
 }
 
 .hero-inner {
@@ -212,20 +203,20 @@ section {
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  border: 1px solid rgba(251, 247, 236, 0.55);
+  border: 1px solid var(--olive);
   padding: 6px;
-  margin: 0 auto 1.6rem;
+  margin: 0 auto 1.4rem;
   object-fit: cover;
-  background: rgba(251, 247, 236, 0.08);
-}
-
-.hero .eyebrow {
-  color: #e7dfc7;
+  background: var(--cream);
 }
 
 .hero h1 {
   font-size: clamp(2.6rem, 7vw, 4.4rem);
-  margin: 0.6rem 0 1rem;
+  color: var(--olive-dark);
+}
+
+.hero .divider {
+  margin: 0.7rem 0 0.9rem;
 }
 
 .hero .date {
@@ -233,7 +224,7 @@ section {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   margin-bottom: 2rem;
-  color: #f1ead6;
+  color: var(--ink-soft);
 }
 
 .countdown {
@@ -252,23 +243,38 @@ section {
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   line-height: 1;
+  color: var(--olive-dark);
 }
 .countdown .label {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #d8cfb0;
+  color: var(--ink-soft);
   margin-top: 0.3rem;
+}
+
+.hero-illustration {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(0.5rem, 3vw, 2rem);
+  width: min(1000px, 100%);
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+.hero-illustration img {
+  width: 50%;
+  max-width: 420px;
+  height: auto;
 }
 
 .scroll-cue {
   position: absolute;
-  bottom: 1.8rem;
+  bottom: 1.2rem;
   left: 50%;
   transform: translateX(-50%);
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(251, 247, 236, 0.6);
+  border: 1px solid var(--olive);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -277,7 +283,7 @@ section {
 .scroll-cue svg {
   width: 14px;
   height: 14px;
-  fill: #fbf7ec;
+  fill: var(--olive-dark);
 }
 
 /* ===== A Nossa Historia ===== */
