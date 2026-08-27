@@ -426,6 +426,26 @@ section {
   border-bottom: 1px solid var(--olive);
 }
 
+.hotel-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hotel-list li + li {
+  margin-top: 0.7rem;
+}
+.hotel-list a {
+  font-size: 0.95rem;
+  color: var(--olive-dark);
+  border-bottom: 1px solid var(--olive);
+}
+.hotel-list span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+}
+
 /* ===== Programa ===== */
 .programa {
   max-width: 560px;
