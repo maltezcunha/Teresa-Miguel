@@ -1,15 +1,3 @@
-// ===== Intro invitation =====
-const introOverlay = document.getElementById('introOverlay');
-const introEnter = document.getElementById('introEnter');
-
-document.body.style.overflow = 'hidden';
-
-introEnter.addEventListener('click', () => {
-  document.body.style.overflow = '';
-  introOverlay.classList.add('hide');
-  setTimeout(() => introOverlay.remove(), 700);
-});
-
 // ===== Mobile nav toggle =====
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
