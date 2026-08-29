@@ -63,6 +63,19 @@ addGuestBtn.addEventListener('click', () => {
 
 renumberGuests();
 
+// ===== RSVP: also log to Google Sheet (parallel to FormSubmit email) =====
+const SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyzdrUc1tP_CFllqI0Jw_1WNj5Nf82iXiEOT4szWS60UToWgFYaFK1h0MaoGyf_KJhVLw/exec';
+const rsvpForm = document.getElementById('rsvpForm');
+
+rsvpForm.addEventListener('submit', () => {
+  try {
+    const data = new FormData(rsvpForm);
+    navigator.sendBeacon(SHEET_WEBAPP_URL, data);
+  } catch (err) {
+    // Silent fail: FormSubmit still handles the primary submission/email.
+  }
+});
+
 // ===== Mobile nav toggle =====
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
