@@ -1,3 +1,68 @@
+// ===== RSVP multi-guest =====
+const guestList = document.getElementById('guestList');
+const addGuestBtn = document.getElementById('addGuestBtn');
+const MAX_GUESTS = 8;
+
+function renumberGuests() {
+  const blocks = guestList.querySelectorAll('.guest-block');
+  blocks.forEach((block, i) => {
+    const n = i + 1;
+    block.querySelector('.guest-number').textContent = `Pessoa ${n}`;
+    block.querySelector('input[type="text"]').name = `Pessoa ${n} - Nome`;
+    block.querySelectorAll('input[type="radio"]').forEach((radio) => {
+      radio.name = `Pessoa ${n} - Confirmação`;
+    });
+    block.querySelector('textarea').name = `Pessoa ${n} - Restrição alimentar`;
+    block.querySelector('.remove-guest').classList.toggle('is-hidden', blocks.length === 1);
+  });
+  addGuestBtn.style.display = blocks.length >= MAX_GUESTS ? 'none' : 'block';
+}
+
+function createGuestBlock() {
+  const block = document.createElement('div');
+  block.className = 'guest-block';
+  block.innerHTML = `
+    <div class="guest-block-header">
+      <span class="guest-number"></span>
+      <button type="button" class="remove-guest">Remover</button>
+    </div>
+    <div class="field">
+      <label>Nome</label>
+      <input type="text" required>
+    </div>
+    <div class="field">
+      <label>Confirma presença?</label>
+      <div class="radio-group">
+        <label><input type="radio" value="Sim, contamos estar presentes!" required> Sim, contamos estar presentes!</label>
+        <label><input type="radio" value="Não poderemos comparecer"> Não poderemos comparecer</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Alguma restrição alimentar?</label>
+      <textarea></textarea>
+    </div>
+  `;
+  block.querySelector('.remove-guest').addEventListener('click', () => {
+    block.remove();
+    renumberGuests();
+  });
+  return block;
+}
+
+guestList.querySelector('.remove-guest').addEventListener('click', () => {
+  if (guestList.querySelectorAll('.guest-block').length > 1) {
+    guestList.querySelector('.guest-block').remove();
+    renumberGuests();
+  }
+});
+
+addGuestBtn.addEventListener('click', () => {
+  guestList.appendChild(createGuestBlock());
+  renumberGuests();
+});
+
+renumberGuests();
+
 // ===== Mobile nav toggle =====
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');

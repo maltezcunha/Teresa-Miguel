@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=EB+Garamond:ital@0;1&amp;display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/styles.css?v=20260827j">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260827k">
 <link rel="icon" href="assets/img/logo/monograma-tm.jpg" type="image/jpeg">
 <link rel="apple-touch-icon" href="assets/img/logo/monograma-tm.jpg">
 </head>
@@ -216,24 +216,31 @@
           <input type="hidden" name="_captcha" value="true">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-          <div class="field">
-            <label for="nome">Nome(s)</label>
-            <input type="text" id="nome" name="Nome(s)" required>
-          </div>
-
-          <div class="field">
-            <label>Confirmas presença?</label>
-            <div class="radio-group">
-              <label><input type="radio" name="Confirmação" value="Sim, contamos estar presentes!" required> Sim, contamos estar presentes!</label>
-              <label><input type="radio" name="Confirmação" value="Não poderemos comparecer"> Não poderemos comparecer</label>
+          <div class="guest-list" id="guestList">
+            <div class="guest-block">
+              <div class="guest-block-header">
+                <span class="guest-number">Pessoa 1</span>
+                <button type="button" class="remove-guest">Remover</button>
+              </div>
+              <div class="field">
+                <label>Nome</label>
+                <input type="text" name="Pessoa 1 - Nome" required>
+              </div>
+              <div class="field">
+                <label>Confirma presença?</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="Pessoa 1 - Confirmação" value="Sim, contamos estar presentes!" required> Sim, contamos estar presentes!</label>
+                  <label><input type="radio" name="Pessoa 1 - Confirmação" value="Não poderemos comparecer"> Não poderemos comparecer</label>
+                </div>
+              </div>
+              <div class="field">
+                <label>Alguma restrição alimentar?</label>
+                <textarea name="Pessoa 1 - Restrição alimentar"></textarea>
+              </div>
             </div>
           </div>
 
-          <div class="field">
-            <label for="restricao">Alguma restrição alimentar?</label>
-            <textarea id="restricao" name="Restrição alimentar"></textarea>
-          </div>
-
+          <button type="button" class="btn-add-guest" id="addGuestBtn">+ Adicionar pessoa</button>
           <button type="submit" class="btn">Enviar Confirmação</button>
         </form>
       </div>
@@ -292,6 +299,6 @@
   <img src="" alt="" id="lightboxImg">
 </div>
 
-<script src="assets/js/main.js?v=20260827j"></script>
+<script src="assets/js/main.js?v=20260827k"></script>
 </body>
 </html>
