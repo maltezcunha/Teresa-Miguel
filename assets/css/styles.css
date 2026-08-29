@@ -257,11 +257,6 @@ section {
 .story-text p + p {
   margin-top: 1.1rem;
 }
-.story-text .script {
-  color: var(--olive-dark);
-  font-style: italic;
-  margin-top: 1.2rem;
-}
 .contamos-consigo {
   text-align: center;
   padding: 1.6rem 0;
